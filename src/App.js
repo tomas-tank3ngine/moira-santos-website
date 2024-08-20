@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Store from "./assets/utils/context-utils";
+import NotFoundPage from "./assets/pages/NotFoundPage/NotFoundPage"
 
 
 function App() {
@@ -11,9 +12,9 @@ function App() {
             <Routes>
                 <Route
                     path="/"
-                    element={<></>}
+                    element={<>Hello</>}
                 />
-                {/* <Route path="*" element={<NotFoundPage />} /> */}
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </Store>
     </BrowserRouter>
