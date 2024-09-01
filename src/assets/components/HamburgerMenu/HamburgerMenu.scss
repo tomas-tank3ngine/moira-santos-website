@@ -2,6 +2,18 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
 
+@keyframes fadeInColor {
+    0% {
+        color: rgba($color-gscale-white, 0); // Start with transparent color
+    }
+    20% {
+        color: var($color-text-dark); // End with the full color
+    }
+    100% {
+        color: var($color-text-dark); // End with the full color
+    }
+}
+
 .menu-background {
     @include tablet {
         display: none;
@@ -13,7 +25,7 @@
     height: 12.5rem;
     width: 12.5rem;
 
-    transition: all 0.06s linear;
+    transition: all 0.08s linear;
     background-color: $color-red-thunderbird;
 
     &.open {
@@ -72,6 +84,8 @@
             padding: 0.125rem;
             width: 45%;
             text-align: end;
+            // color: rgba(white, 0); // Ensure the starting color is transparent
+            animation: fadeInColor 0.2s linear forwards;
         }
     }
 }

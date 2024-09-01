@@ -1,13 +1,14 @@
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
+import LogoSimple from '../../images/MS-Simple.png';
 
 function Header() {
     return (
         <>
             <nav className="header-nav">
                 <Link to="/" className="header-nav__logo">
-                    <img src="" alt="ms Logo" className="ms-logo" />
+                    <img src={LogoSimple} alt="ms Logo" className="ms-logo" />
                 </Link>
                 <section className="link-container">
                     <Link to="/" className="link-container__link">

@@ -1,3 +1,78 @@
-@use '../../styles/partials/global.scss' as *;
-@use '../../styles/partials/variables.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/global' as *;
+
+.footer {
+    @extend .format-padding;
+    background-color: black;
+    color: $color-text-light;
+    background-color: $color-dark-shade;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 180px;
+    padding: 1rem;
+    gap: 1rem;
+    overflow-x: hidden;
+
+    &__title {
+        @extend .section-header;
+        text-align: center;
+    }
+
+    .footer-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+
+        @include tablet{
+            flex-direction: row;
+        }
+
+
+        &__left{
+            width: 50%;
+
+        }
+
+        &__right{
+            display: flex;
+            flex-direction: column;
+            @include tablet{
+                flex-wrap: wrap;
+                width: 50%;
+            }
+            .footer-menu__header{
+                @extend .subheader;
+                text-align: center;
+                width: 100%;
+            }
+            .footer-menu__nav{
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                padding: 12px;
+                &--link{
+                    margin-top: 8px;
+                    text-align: center;
+                    width: 50%;
+                    .hyperlink{
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    &__copyright {
+        text-align: center;
+
+        &--link {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
