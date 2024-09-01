@@ -1,0 +1,107 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+.menu-background {
+    @include tablet {
+        display: none;
+    }
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 12.5rem;
+    width: 12.5rem;
+
+    transition: all 0.06s linear;
+    background-color: $color-red-thunderbird;
+
+    &.open {
+        border-radius: 24px;
+        height: 365px;
+        width: 385px;
+        top: -12.5rem;
+        right: -12.5rem;
+        box-shadow: 0 0 0.75rem 0.0625rem rgba(0, 0, 0, 0.3);
+    }
+
+    &.closed {
+        height: 0;
+        width: 0;
+    }
+}
+
+.open-menu {
+    @include tablet {
+        display: none;
+    }
+    position: fixed;
+    padding: 0;
+    top: -8px;
+    right: 8px;
+    width: 180px;
+    // height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &__button {
+        align-self: flex-end;
+        &--icon {
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        margin-top: 8px;
+        height: 100%;
+        width: 100%;
+        gap: 14px;
+
+        &--link {
+            // align-self: flex-end;
+            @extend .label;
+            font-weight: bold;
+            letter-spacing: 0.2ch;
+            padding: 0.125rem;
+            width: 45%;
+            text-align: end;
+        }
+    }
+}
+.close-menu {
+    @include tablet {
+        display: none;
+    }
+    position: fixed;
+    top: -32px;
+    right: -16px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: $color-red-thunderbird;
+    border-radius: 16px;
+    height: 64px;
+    width: 64px;
+    padding: 12px;
+    box-shadow: 0 0 0.75rem 0.0625rem rgba(0, 0, 0, 0.3);
+
+    &__button {
+        &--icon {
+            height: 1.875rem;
+            width: 1.875rem;
+        }
+    }
+
+    &__nav {
+        &--link {
+        }
+    }
+}
