@@ -16,7 +16,11 @@ function HamburgerMenu() {
             {isOpen ? (
                 <menu className={`open-menu`}>
                     <button className="open-menu__button" onClick={handleMenu}>
-                        <img src={Icons().CloseIcon} alt="close menu" className="open-menu__button--icon" />
+                        <img
+                            src={Icons().CloseIcon}
+                            alt="close menu"
+                            className={`open-menu__button--icon ${isOpen ? 'rotate-open' : 'rotate-close'}`}
+                        />
                     </button>
 
                     <ul className={`open-menu__nav`}>
@@ -55,7 +59,11 @@ function HamburgerMenu() {
             ) : (
                 <menu className={`close-menu`}>
                     <button className="close-menu__button" onClick={handleMenu}>
-                        <img src={Icons().MenuIcon} alt="hamburger menu" className="close-menu__button--icon" />
+                        <img
+                            src={Icons().MenuIcon}
+                            alt="hamburger menu"
+                            className={`close-menu__button--icon ${isOpen ? 'rotate-open' : 'rotate-close'}`}
+                        />
                     </button>
                 </menu>
             )}

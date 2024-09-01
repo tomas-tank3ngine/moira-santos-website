@@ -14,6 +14,37 @@
     }
 }
 
+@keyframes rotateOpen {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(90deg); // Rotate 90 degrees to open
+    }
+  }
+
+  @keyframes rotateClose {
+    0% {
+      transform: rotate(90deg);
+    }
+    100% {
+      transform: rotate(0deg); // Rotate back to 0 degrees to close
+    }
+  }
+
+  .close-menu__button--icon,
+  .open-menu__button--icon {
+    transition: transform 0.5s cubic-bezier(0, 0.7, 0.32, 1); // Smooth transition
+
+    &.rotate-open {
+      animation: rotateOpen 0.5s forwards;
+    }
+
+    &.rotate-close {
+      animation: rotateClose 0.5s forwards;
+    }
+  }
+
 .menu-background {
     @include tablet {
         display: none;
@@ -21,7 +52,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 1;
+    z-index: 10;
     height: 12.5rem;
     width: 12.5rem;
 
@@ -53,7 +84,7 @@
     right: 8px;
     width: 180px;
     // height: 100%;
-    z-index: 1;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -96,7 +127,7 @@
     position: fixed;
     top: -32px;
     right: -16px;
-    z-index: 1;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

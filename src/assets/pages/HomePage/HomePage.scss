@@ -1,3 +1,103 @@
 @use '../../styles/partials/global.scss' as *;
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
+
+.homepage{
+    background-color: $color-gscale-cinder;
+
+    .homepage-hero{
+        display: flex;
+        justify-content: center;
+
+        &__logo{
+            @include tablet{
+                display: none;
+            }
+            margin: 36px 0;
+            max-width: 256px;
+        }
+
+        &__action-shot{
+            display: none;
+            @include tablet{
+                display: block;
+                width: 100%;
+                filter: opacity(60%)
+            }
+        }
+    }
+
+    .homepage-nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 36px 0;
+        @include tablet{
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-card{
+            position: relative;
+            display: flex;
+            width: 256px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 2px;
+            overflow: hidden;
+
+            @include tablet{
+                // flex-direction: row;
+                width: 30%;
+                height: auto;
+                aspect-ratio: 1;
+                border-radius: 8px;
+            }
+
+            &__background{
+                position:absolute;
+                filter: opacity(40%);
+
+                @include tablet{
+                    height: 100%;
+                    width: auto;
+
+                    overflow:hidden;
+                    background-size: cover;
+                }
+            }
+            &__title{
+                @extend .label;
+                font-weight: 700;
+                font-size:xx-large;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .homepage-sponsors{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+        height: fit-content;
+        padding: 36px 0;
+
+        .sponsor-link{
+            min-height: 128px;
+            width: 100%;
+
+            .sponsor-link__image{
+
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

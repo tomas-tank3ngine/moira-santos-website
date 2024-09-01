@@ -7,9 +7,7 @@ export default function Footer() {
         <footer className="footer" id="footer">
             <h1 className="footer__title">Contact</h1>
             <section className="footer-container">
-                <section className="footer-container__left">
-        LEFT
-                </section>
+                <section className="footer-container__left">LEFT</section>
                 <section className="footer-container__right">
                     <h2 className="footer-menu__header">Sitemap</h2>
                     <ul className={`footer-menu__nav`}>

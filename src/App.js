@@ -5,6 +5,7 @@ import Store from './assets/utils/context-utils';
 import NotFoundPage from './assets/pages/NotFoundPage/NotFoundPage';
 import Header from './assets/components/Header/Header';
 import Footer from './assets/components/Footer/Footer';
+import HomePage from './assets/pages/HomePage/HomePage';
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
             <Store>
                 <Header />
                 <Routes>
-                    <Route path="/" element={<>Home Page</>} />
+                    <Route path="/" element={<HomePage />} />
                     <Route path="/teams" element={<>Teams Page</>} />
                     <Route path="/season" element={<>Season Page</>} />
                     <Route path="/gallery" element={<>Gallery Page</>} />

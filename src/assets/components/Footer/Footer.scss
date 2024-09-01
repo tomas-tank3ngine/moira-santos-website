@@ -20,50 +20,48 @@
         text-align: center;
     }
 
-    .footer-container{
+    .footer-container {
         display: flex;
         flex-direction: column;
         width: 100%;
         height: 100%;
 
-        @include tablet{
+        @include tablet {
             flex-direction: row;
         }
 
-
-        &__left{
+        &__left {
             width: 50%;
-
         }
 
-        &__right{
+        &__right {
             display: flex;
             flex-direction: column;
-            @include tablet{
+            @include tablet {
                 flex-wrap: wrap;
                 width: 50%;
             }
-            .footer-menu__header{
+            .footer-menu__header {
                 @extend .subheader;
                 text-align: center;
                 width: 100%;
             }
-            .footer-menu__nav{
+            .footer-menu__nav {
                 display: flex;
                 flex-wrap: wrap;
+                justify-content: center;
                 width: 100%;
+                max-width: 375px;
                 padding: 12px;
-                &--link{
+                &--link {
                     margin-top: 8px;
                     text-align: center;
                     width: 50%;
-                    .hyperlink{
-
+                    .hyperlink {
                     }
                 }
             }
         }
-
     }
 
     &__copyright {
