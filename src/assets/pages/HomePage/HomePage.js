@@ -10,6 +10,8 @@ function HomePage() {
             <section className="homepage-hero">
                 <img src={Logo} alt="Logo" className="homepage-hero__logo" />
                 <img src={Riley} alt="HERO" className="homepage-hero__action-shot" />
+                <p className="homepage-hero__text--top-left">Moira Santos</p>
+                <p className="homepage-hero__text--bottom-right">Football Club</p>
             </section>
             <nav className="homepage-nav">
                 <Link to="/season" className="nav-card">
