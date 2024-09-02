@@ -110,11 +110,13 @@
         &--link {
             // align-self: flex-end;
             @extend .label;
-            font-weight: bold;
+            font-weight: 700;
             letter-spacing: 0.2ch;
             padding: 0.125rem;
             width: 45%;
             text-align: end;
+            text-shadow: $color-red-venetian 1px 0 6px;
+            color: $color-text-dark;
             // color: rgba(white, 0); // Ensure the starting color is transparent
             animation: fadeInColor 0.2s linear forwards;
         }

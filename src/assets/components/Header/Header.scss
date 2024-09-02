@@ -3,6 +3,7 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .header-nav {
+    //https://www.w3schools.com/howto/howto_js_shrink_header_scroll.asp
     @extend .body-copy;
     @extend .format-padding;
     display: none;
@@ -13,16 +14,42 @@
         justify-content: space-between;
         background-color: $color-gscale-cinder;
         align-items: center;
+        z-index: 10;
+        position: sticky;
+        top:0;
 
         &__logo {
             height: 100px;
+
             display: flex;
             align-items: center;
 
             .ms-logo {
                 color: $color-text-light;
-                width: 100%;
-                height: 100%;
+                height: 100px;
+                width: auto;
+            }
+            .text-container{
+                display: flex;
+                flex-direction: column;
+                height:100%;
+
+                @include desktop{
+                    flex-direction: row;
+                }
+
+                .ms-name{
+                    display: flex;
+                    font-size: 36px;
+                    font-weight: 700;
+                    height:50%;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    @include desktop{
+                        height: 100%;
+                    }
+                }
             }
         }
 
@@ -31,7 +58,35 @@
             justify-content: space-around;
             width: 60%;
             &__link {
+                font-size: 18px;
+                font-weight: 700;
                 color: $color-text-light;
+                text-shadow: rgb(0, 0, 0) 1px 0 10px;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 0.25rem;
+                    border-radius: 0.25rem;
+                    background-color: $color-red-venetian;
+                    top: 2.5rem;
+                    left: 0;
+                    transform-origin: right;
+                    transform: scaleX(0);
+                    transition: transform 0.15s ease-in-out;
+                  }
+
+                  &:hover::before {
+                    transform-origin: left;
+                    transform: scaleX(1);
+                  }
+
+                @include desktop{
+                    font-size: 32px;
+                    font-weight: 700;
+                }
             }
         }
     }

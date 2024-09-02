@@ -9,6 +9,10 @@ function Header() {
             <nav className="header-nav">
                 <Link to="/" className="header-nav__logo">
                     <img src={LogoSimple} alt="ms Logo" className="ms-logo" />
+                    <section className="text-container">
+                        <p className="ms-name">MS</p>
+                        <p className="ms-name">FC</p>
+                    </section>
                 </Link>
                 <section className="link-container">
                     <Link to="/" className="link-container__link">
@@ -27,7 +31,7 @@ function Header() {
                         Legacy
                     </Link>
                     <Link to="/about" className="link-container__link">
-                        About Us
+                        About
                     </Link>
                 </section>
             </nav>
