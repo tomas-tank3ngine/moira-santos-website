@@ -19,4 +19,22 @@ async function getCommunityById(id) {
     return communitySnapshot.data();
 }
 
-export { getCommunities, getCommunityById };
+async function doesPlayerExist(snapshot){
+    if (!snapshot.exists()) throw new Error('Player not found');
+}
+
+async function getPlayers(){
+    const playersCollection = collection(db, 'players');
+    const playersSnapshot = await getDocs(playersCollection);
+    const playersList = playersSnapshot.docs.map(doc => doc.data());
+    return playersList;
+}
+
+async function getPlayerById(id) {
+    const playerRef = doc(db, 'players', id);
+    const playerSnapshot = await getDoc(playerRef);
+    doesPlayerExist(playerSnapshot);
+    return playerSnapshot.data();
+}
+
+export { getCommunities, getCommunityById, getPlayers, getPlayerById };

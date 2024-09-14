@@ -2,10 +2,16 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Store from './assets/utils/context-utils';
-import NotFoundPage from './assets/pages/NotFoundPage/NotFoundPage';
 import Header from './assets/components/Header/Header';
 import Footer from './assets/components/Footer/Footer';
+//import pages
+import NotFoundPage from './assets/pages/NotFoundPage/NotFoundPage';
 import HomePage from './assets/pages/HomePage/HomePage';
+import SeasonPage from './assets/pages/SeasonPage/SeasonPage';
+import TeamsPage from './assets/pages/TeamsPage/TeamsPage';
+import GalleryPage from './assets/pages/GalleryPage/GalleryPage';
+import LegacyPage from './assets/pages/LegacyPage/LegacyPage';
+import AboutPage from './assets/pages/AboutPage/AboutPage';
 
 function App() {
     return (
@@ -14,11 +20,11 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/teams" element={<>Teams Page</>} />
-                    <Route path="/season" element={<>Season Page</>} />
-                    <Route path="/gallery" element={<>Gallery Page</>} />
-                    <Route path="/legacy" element={<>Legacy Page</>} />
-                    <Route path="/about" element={<>About Page</>} />
+                    <Route path="/teams" element={<TeamsPage />} />
+                    <Route path="/season" element={<SeasonPage />} />
+                    <Route path="/gallery" element={<GalleryPage />} />
+                    <Route path="/legacy" element={<LegacyPage />} />
+                    <Route path="/about" element={<AboutPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
                 <Footer />
