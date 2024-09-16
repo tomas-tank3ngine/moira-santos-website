@@ -22,8 +22,15 @@ async function getPlayerById(id) {
 
 //TESTING
 async function addPlayer(player) {
-    if (!player.fullName || !player.email) {
-        throw new Error('Required Field not selected.');
+    if (
+        !player.appearances
+        || !player.firstName
+        || !player.goalsScored
+        || !player.jerseyNumber
+        || !player.lastName
+        || !player.position
+    ) {
+        throw new Error('Required fields missing.');
     }
     const newPlayerRef = await addDoc(collection(db, 'players'), player);
     return newPlayerRef.id;
