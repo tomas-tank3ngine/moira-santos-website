@@ -1,23 +1,6 @@
-import {db} from '../firebase-config';
+import {db} from '../../firebaseConfig';
 import { collection, getDocs, doc, getDoc, setDoc, addDoc, deleteDoc } from 'firebase/firestore';
 
-async function doesCommunityExist(snapshot) {
-    if (!snapshot.exists()) throw new Error('Community not found.');
-}
-
-async function getCommunities() {
-    const communitiesCollection = collection(db, 'Communities');
-    const communitiesSnapshot = await getDocs(communitiesCollection);
-    const communitiesList = communitiesSnapshot.docs.map(doc => doc.data());
-    return communitiesList;
-}
-
-async function getCommunityById(id) {
-    const communityRef = doc(db, 'Communities', id);
-    const communitySnapshot = await getDoc(communityRef);
-    doesCommunityExist(communitySnapshot);
-    return communitySnapshot.data();
-}
 
 async function doesPlayerExist(snapshot){
     if (!snapshot.exists()) throw new Error('Player not found');
@@ -37,4 +20,30 @@ async function getPlayerById(id) {
     return playerSnapshot.data();
 }
 
-export { getCommunities, getCommunityById, getPlayers, getPlayerById };
+//TESTING
+async function addPlayer(player) {
+    if (!player.fullName || !player.email) {
+        throw new Error('Required Field not selected.');
+    }
+    const newPlayerRef = await addDoc(collection(db, 'players'), player);
+    return newPlayerRef.id;
+}
+
+// The shouldMerge parameter is optional and defaults to false.
+// If set to true, the player object will be merged with the existing document and will not overwrite any existing fields.
+// If set to false, the player object will overwrite the existing document.
+async function updatePlayer(id, player, shouldMerge = false) {
+    const playerRef = doc(db, 'players', id);
+    const playerSnapshot = await getDoc(playerRef);
+    doesPlayerExist(playerSnapshot);
+    await setDoc(playerRef, player, {merge: shouldMerge});
+}
+
+async function deletePlayer(id) {
+    const playerRef = doc(db, 'players', id);
+    const playerSnapshot = await getDoc(playerRef);
+    doesPlayerExist(playerSnapshot);
+    await deleteDoc(playerRef);
+}
+
+export { getPlayers, getPlayerById, addPlayer, updatePlayer, deletePlayer };

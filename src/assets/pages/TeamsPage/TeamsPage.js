@@ -1,16 +1,27 @@
 import { Link } from 'react-router-dom';
 import './TeamsPage.scss';
+import { getPlayers, getPlayerById } from '../../utils/players';
+import { useState, useEffect } from 'react';
 
 function TeamsPage() {
+    const [playersList, setPlayersList] = useState([]);
+
+    useEffect(()=>{
+        const fetchData = async () =>{
+            const players = await getPlayers();
+            console.log(players)
+            setPlayersList(players);
+        }
+
+        fetchData();
+    }, [])
+
+
     return (
-        <main className="not-found-page">
-            <h1 className="not-found-page__title">404 - Page Not Found </h1>
-            <p className="not-found-page__p">
-                Go back{' '}
-                <Link to="/" className="not-found-page__link">
-                    Home
-                </Link>
-            </p>
+        <main className="teams-page">
+            {playersList.length > 0 && (
+                <p className="players">{playersList[0].firstName}</p>
+            )}
         </main>
     );
 }
