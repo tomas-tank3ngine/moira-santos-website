@@ -1,23 +1,22 @@
 import './PlayerCard.scss';
-import IMG from '../../images/MSLogo_400x400.png'
+import IMG from '../../images/MSLogo_400x400.png';
 
-function PlayerCard({player}){
+function PlayerCard({ player }) {
     console.log(player);
 
-    return(
+    return (
         <div className="player-card">
-            <img src={IMG} alt="Player headshot" className="player-card__background" />
+            <img src={IMG} alt={`${player.firstName} ${player.lastName}`} className="player-card__background" />
             <section className="player-info">
                 <div className="critial-info">
-                    <p className="critial-info__jersey-number">#</p>
-                    <p className="critial-info__f-name">FNAME</p>
-                    <p className="critial-info__l-name">LNAME</p>
+                    <p className="critial-info__jersey-number">{player.jerseyNumber} </p>
+                    <p className="critial-info__f-name">{player.firstName}</p>
+                    <p className="critial-info__l-name">{player.lastName}</p>
                 </div>
-                <p className="player-info__position">Position</p>
+                <p className="player-info__position">{player.positionPrimary}</p>
             </section>
         </div>
-
-    )
+    );
 }
 
 export default PlayerCard;

@@ -16,34 +16,34 @@
 
 @keyframes rotateOpen {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(90deg); // Rotate 90 degrees to open
+        transform: rotate(90deg); // Rotate 90 degrees to open
     }
-  }
+}
 
-  @keyframes rotateClose {
+@keyframes rotateClose {
     0% {
-      transform: rotate(90deg);
+        transform: rotate(90deg);
     }
     100% {
-      transform: rotate(0deg); // Rotate back to 0 degrees to close
+        transform: rotate(0deg); // Rotate back to 0 degrees to close
     }
-  }
+}
 
-  .close-menu__button--icon,
-  .open-menu__button--icon {
+.close-menu__button--icon,
+.open-menu__button--icon {
     transition: transform 0.5s cubic-bezier(0, 0.7, 0.32, 1); // Smooth transition
 
     &.rotate-open {
-      animation: rotateOpen 0.5s forwards;
+        animation: rotateOpen 0.5s forwards;
     }
 
     &.rotate-close {
-      animation: rotateClose 0.5s forwards;
+        animation: rotateClose 0.5s forwards;
     }
-  }
+}
 
 .menu-background {
     @include tablet {

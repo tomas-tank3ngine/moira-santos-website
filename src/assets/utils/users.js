@@ -1,5 +1,5 @@
-import {db} from '../firebase-config';
-import {collection, getDocs, doc, getDoc, setDoc, addDoc, deleteDoc} from 'firebase/firestore';
+import { db } from '../firebase-config';
+import { collection, getDocs, doc, getDoc, setDoc, addDoc, deleteDoc } from 'firebase/firestore';
 
 async function doesUserExist(snapshot) {
     if (!snapshot.exists()) throw new Error('User not found.');
@@ -9,7 +9,7 @@ async function doesUserExist(snapshot) {
 async function getUsers() {
     const usersCollection = collection(db, 'Users');
     const usersSnapshot = await getDocs(usersCollection);
-    const usersList = usersSnapshot.docs.map(doc => doc.data());
+    const usersList = usersSnapshot.docs.map((doc) => doc.data());
     return usersList;
 }
 
@@ -35,7 +35,7 @@ async function updateUser(id, user, shouldMerge = false) {
     const userRef = doc(db, 'Users', id);
     const userSnapshot = await getDoc(userRef);
     doesUserExist(userSnapshot);
-    await setDoc(userRef, user, {merge: shouldMerge});
+    await setDoc(userRef, user, { merge: shouldMerge });
 }
 
 async function deleteUser(id) {
@@ -45,5 +45,4 @@ async function deleteUser(id) {
     await deleteDoc(userRef);
 }
 
-export {getUsers, getUserById, addUser, updateUser, deleteUser};
-
+export { getUsers, getUserById, addUser, updateUser, deleteUser };

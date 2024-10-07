@@ -12,6 +12,7 @@ import TeamsPage from './assets/pages/TeamsPage/TeamsPage';
 import GalleryPage from './assets/pages/GalleryPage/GalleryPage';
 import LegacyPage from './assets/pages/LegacyPage/LegacyPage';
 import AboutPage from './assets/pages/AboutPage/AboutPage';
+import AdminPage from './assets/pages/AdminPage/AdminPage';
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/gallery" element={<GalleryPage />} />
                     <Route path="/legacy" element={<LegacyPage />} />
                     <Route path="/about" element={<AboutPage />} />
+                    <Route path="/admin" element={<AdminPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
                 <Footer />

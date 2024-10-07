@@ -2,23 +2,18 @@
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
 
-.not-found-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    &__title {
-        // @extend .page-header;
-        padding: 2.25rem;
+.teams-page {
+    &__hero {
     }
+    .position-category {
+        border-bottom: black solid 2px;
 
-    &__p {
-        // @extend .subheader;
-    }
+        &__section-header {
+            padding: 0px 80px;
+            font-size: 2rem;
 
-    &__link {
-        color: black;
-        text-decoration: underline;
+            height: 48px;
+            font-weight: 700;
+        }
     }
 }

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import './HomePage.scss';
 
-import Logo from '../../images/MSLogo_400x400.png'
-import Riley from '../../images/Riley19.png'
+import Logo from '../../images/MSLogo_400x400.png';
+import Riley from '../../images/Riley19.png';
 
 function HomePage() {
     return (
@@ -34,7 +34,6 @@ function HomePage() {
                     <h2 className="nav-card__title">ABOUT</h2>
                     <img src={Riley} alt="HEADER5" className="nav-card__background" />
                 </Link>
-
             </nav>
 
             <section className="homepage-sponsors">
@@ -42,7 +41,6 @@ function HomePage() {
                     <img src="" alt="Sponsors" className="sponsor-link__image" />
                 </Link>
             </section>
-
         </main>
     );
 }
