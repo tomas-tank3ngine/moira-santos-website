@@ -1,3 +1,13 @@
 @use '../../styles/partials/global.scss' as *;
 @use '../../styles/partials/variables.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
+
+.table-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__player-item {
+        width: 100px;
+        text-align: center;
+    }
+}

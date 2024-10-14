@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 import PlayerForm from '../../components/PlayerForm/PlayerForm';
 
-import PlayerRow from '../../components/PlayerRow/PlayerRow';
+import PlayerTable from '../../components/PlayerTable/PlayerTable';
 
 function AdminPage() {
     const [playersList, setPlayersList] = useState([]);
@@ -24,16 +24,8 @@ function AdminPage() {
     return (
         <main className="admin-page">
             <h1 className="admin-page__title">Admin Page </h1>
-            <section className="player-table">
-                {playersList.length > 0 && (
-                    <div className="players-list">
-                        {playersList
-                            .map((player) => (
-                                <PlayerRow key={player.id} player={player} />
-                            ))}
-                    </div>
-                )}
-            </section>
+
+            <PlayerTable players={playersList}/>
 
             <PlayerForm />
 
