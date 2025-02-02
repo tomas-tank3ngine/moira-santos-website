@@ -8,8 +8,11 @@ import PlayerForm from '../../components/PlayerForm/PlayerForm';
 
 import PlayerTable from '../../components/PlayerTable/PlayerTable';
 
+import ModalBasic from '../../components/ModalBasic/ModalBasic';
+
 function AdminPage() {
     const [playersList, setPlayersList] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,10 +27,18 @@ function AdminPage() {
     return (
         <main className="admin-page">
             <h1 className="admin-page__title">Admin Page </h1>
+            <div className='add-player-modal'>
+                <button className='add-player-modal__button' onClick={() => setIsModalOpen(true)}>+ Add New Player</button>
 
-            <PlayerTable players={playersList}/>
+                <ModalBasic isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                    <h2>Add New Player</h2>
+                    <PlayerForm onClose={() => setIsModalOpen(false)} />
+                </ModalBasic>
+            </div>
 
-            <PlayerForm />
+            <PlayerTable players={playersList} />
+
+            {/* <PlayerForm /> */}
 
             <p className="admin-page__p">
                 Go back{' '}
